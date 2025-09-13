@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body.minecraft {
+  font-family: 'Press Start 2P', cursive;
+  background: url('assets/bg.png');
+  background-size: cover;
+  color: #fff;
+  margin: 0;
+}
+
+/* Navbar */
+.navbar {
+  background: #2c2f33;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.navbar a {
+  color: #00ff88;
+  text-decoration: none;
+}
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(0,0,0,0.7);
+}
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+}
+.highlight {
+  color: #00ff88;
+}
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #00ff88;
+  color: #111;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #55ffaa;
+}
+
+/* Sections */
+.section {
+  background: rgba(0,0,0,0.8);
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+.projects-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.card {
+  background: #333;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #2c2f33;
+  padding: 1rem;
+}
