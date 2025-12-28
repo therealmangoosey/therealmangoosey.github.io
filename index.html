@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ithinkimcharlie - Developer & Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            transition: background 0.5s ease;
+        }
+
+        body.coding-section {
+            background: linear-gradient(180deg, #0a0a0a, #1a0f1a);
+        }
+
+        body.galaxy-section {
+            background: linear-gradient(180deg, #050510, #0f0520, #1a0a30);
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .animated-bg.active {
+            opacity: 1;
+        }
+
+        .matrix-rain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            font-size: 14px;
+            color: #0f0;
+            text-shadow: 0 0 8px #0f0;
+            animation: fall linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes fall {
+            to { top: 100%; }
+        }
+
+        .galaxy {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite, float 20s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00ff88;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #00ff88;
+            transition: 0.3s;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            z-index: 1;
+        }
+
+        .glitch {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #00ff88;
+            text-shadow: 
+                0 0 10px rgba(0, 255, 136, 0.8),
+                0 0 20px rgba(0, 255, 136, 0.6),
+                0 0 30px rgba(0, 255, 136, 0.4);
+            animation: glitch 3s infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% {
+                transform: translate(0);
+            }
+            92% {
+                transform: translate(-2px, 2px);
+            }
+            94% {
+                transform: translate(2px, -2px);
+            }
+            96% {
+                transform: translate(-2px, -2px);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .typing::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: 2px solid #00ff88;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 136, 0.2);
+            transition: left 0.3s;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn-primary {
+            background: transparent;
+            color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #8a2be2;
+            border-color: #8a2be2;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
+        }
+
+        section {
+            position: relative;
+            padding: 5rem 10%;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #00ff88;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            font-family: 'Courier New', monospace;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #b0b0b0;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ff88, #8a2be2);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 10px;
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+        }
+
+        .skill-card p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.3);
+        }
+
+        .contact-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #8a2be2;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            position: relative;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 1px solid rgba(0, 255, 136, 0.3);
+            z-index: 1;
+        }
+
+        footer p {
+            color: #606060;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 768px) {
+            .glitch {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg" id="codingBg">
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+
+    <div class="animated-bg" id="galaxyBg">
+        <div class="galaxy" id="galaxy"></div>
+    </div>
+
+    <nav>
+        <div class="logo">&lt;ithinkimcharlie/&gt;</div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">home</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1 class="glitch">ithinkimcharlie</h1>
+        <p class="typing">developer • creator • 16</p>
+        <div class="cta-buttons">
+            <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary" target="_blank">join discord</a>
+            <a href="#contact" class="btn btn-secondary">get in touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">// about me</h2>
+        <div class="about-content">
+            <p>hey! i'm charlie, a 16-year-old developer building discord bots and minecraft plugins. i code stuff that makes communities better and gameplay more interesting. always experimenting with new ideas and building cool projects.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">// what i do</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h3>bot development</h3>
+                <p>creating discord bots and automation tools that make life easier. from utility commands to complex systems.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⛏️</div>
+                <h3>minecraft plugins</h3>
+                <p>developing custom minecraft plugins that enhance gameplay and add new features. from simple utilities to complex game mechanics.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>coding projects</h3>
+                <p>building various projects and tools. always learning new languages and frameworks to bring ideas to life.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">// let's connect</h2>
+        <div class="contact-card">
+            <h3>ready to collaborate?</h3>
+            <p>join my discord for commissions, project updates, and to see what i'm building. always open to new ideas and opportunities.</p>
+            <a href="https://dsc.gg/fruitsnacks" class="btn btn-secondary" target="_blank">join discord server</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 ithinkimcharlie • built with code & caffeine</p>
+    </footer>
+
+    <script>
+        // Matrix rain effect
+        const matrixRain = document.getElementById('matrixRain');
+        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        
+        for (let i = 0; i < 30; i++) {
+            const column = document.createElement('div');
+            column.className = 'matrix-column';
+            column.style.left = Math.random() * 100 + '%';
+            column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            column.style.animationDelay = Math.random() * 2 + 's';
+            
+            let text = '';
+            for (let j = 0; j < 20; j++) {
+                text += chars[Math.floor(Math.random() * chars.length)] + '<br>';
+            }
+            column.innerHTML = text;
+            matrixRain.appendChild(column);
+        }
+
+        // Galaxy effect
+        const galaxy = document.getElementById('galaxy');
+        
+        // Stars
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            galaxy.appendChild(star);
+        }
+
+        // Nebulas
+        const colors = ['#8a2be2', '#9d4edd', '#c77dff', '#e0aaff'];
+        for (let i = 0; i < 5; i++) {
+            const nebula = document.createElement('div');
+            nebula.className = 'nebula';
+            nebula.style.width = Math.random() * 300 + 200 + 'px';
+            nebula.style.height = nebula.style.width;
+            nebula.style.left = Math.random() * 100 + '%';
+            nebula.style.top = Math.random() * 100 + '%';
+            nebula.style.background = colors[Math.floor(Math.random() * colors.length)];
+            nebula.style.animationDelay = Math.random() * 4 + 's';
+            galaxy.appendChild(nebula);
+        }
+
+        // Background transition on scroll
+        const codingBg = document.getElementById('codingBg');
+        const galaxyBg = document.getElementById('galaxyBg');
+        const body = document.body;
+
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            const windowHeight = window.innerHeight;
+            
+            if (scrollPos < windowHeight * 2) {
+                codingBg.classList.add('active');
+                galaxyBg.classList.remove('active');
+                body.className = 'coding-section';
+            } else {
+                codingBg.classList.remove('active');
+                galaxyBg.classList.add('active');
+                body.className = 'galaxy-section';
+            }
+        });
+
+        // Initialize first background
+        codingBg.classList.add('active');
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Close mobile menu
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+  </html>
