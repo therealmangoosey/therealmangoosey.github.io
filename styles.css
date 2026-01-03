@@ -146,13 +146,28 @@ nav {
 }
 
 /* ==========================================================================
-   COMPONENT 1: LOADER (by kennyotsu)
+   COMPONENT 1: LOADER (by kennyotsu) - WITH "developing" PREFIX
    ========================================================================== */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2rem auto;
+    height: 50px;
+}
+
+.loader-prefix {
+    color: #00ff88;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-weight: 700;
+    font-size: 20px;
+}
+
 .loader {
     position: relative;
     width: 250px;
     height: 50px;
-    margin: 2rem auto;
 }
 
 .loader span {
@@ -229,11 +244,12 @@ nav {
 }
 
 /* ==========================================================================
-   COMPONENT 4: ADD SERVER BUTTON (by StealthWorm) - Theme matched
+   COMPONENT 4: ADD SERVER BUTTON (by StealthWorm) - GALAXY EFFECT
    ========================================================================== */
 .add-server-btn {
-    background: #00ff88;
-    color: #000000;
+    background: linear-gradient(45deg, #00ff88, #00d4ff, #8a2be2, #ff00ff);
+    background-size: 300% 300%;
+    color: #ffffff;
     padding: 14px 32px;
     font-size: 14px;
     font-weight: 700;
@@ -248,18 +264,25 @@ nav {
     margin: 0 0.5rem;
     text-decoration: none;
     display: inline-block;
+    animation: gradient-animation 4s ease infinite;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .add-server-btn:hover {
-    background: #8a2be2;
-    color: #ffffff;
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.6), 0 0 60px rgba(0, 255, 136, 0.4);
+    transform: translateY(-2px) scale(1.05);
 }
 
 .add-server-btn span {
     position: relative;
     z-index: 1;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .cta-buttons {
@@ -395,6 +418,22 @@ section {
     font-style: italic;
 }
 
+.project-title {
+    font-size: 1.8rem;
+    color: #00ff88;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.project-stats {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #909090;
+    flex-wrap: wrap;
+}
+
 .project-description {
     margin: 15px 0;
     color: #c0c0c0;
@@ -477,11 +516,16 @@ footer p {
         grid-template-columns: 1fr;
     }
 
+    .loader-container {
+        flex-direction: column;
+        gap: 0;
+    }
+
     .loader {
         width: 200px;
     }
 
-    .loader span {
+    .loader span, .loader-prefix {
         font-size: 16px;
     }
 }
