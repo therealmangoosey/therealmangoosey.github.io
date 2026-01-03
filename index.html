@@ -4,609 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ithinkimcharlie - Developer & Creator</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: 'Courier New', monospace;
-            background: radial-gradient(ellipse at center, #0a1628 0%, #050a15 60%, #000 100%);
-            color: #fff;
-            overflow-x: hidden;
-            width: 100%;
-            position: relative;
-            min-height: 100vh;
-        }
-
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 1;
-            overflow: hidden;
-        }
-
-        .galaxy {
-            position: absolute;
-            width: 100%;
-            height: 300%;
-            overflow: hidden;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 2px solid rgba(0, 255, 136, 0.3);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #00ff88;
-            text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
-            transition: all 0.3s;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #b0b0b0;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a:hover {
-            color: #00ff88;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background: #00ff88;
-            transition: 0.3s;
-            border-radius: 3px;
-        }
-
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 1rem 3rem;
-            z-index: 2;
-        }
-
-        .glitch {
-            font-size: clamp(2rem, 8vw, 5rem);
-            font-weight: bold;
-            color: #00ff88;
-            text-shadow: 0 0 10px rgba(0, 255, 136, 0.8), 2px 2px 0 #8a2be2, -2px -2px 0 #00ffff;
-            animation: glitch 4s infinite;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        @keyframes glitch {
-            0%, 90%, 100% { transform: translate(0); }
-            92% { transform: translate(-3px, 3px); }
-            94% { transform: translate(3px, -3px); }
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 3vw, 1.4rem);
-            color: #a0a0a0;
-            margin-bottom: 2.5rem;
-        }
-
-        /* Text Switching Loader - Inspired by kennyotsu */
-        .status-loader {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin: 2rem auto;
-            padding: 1.5rem 2rem;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            border-radius: 12px;
-            max-width: 400px;
-        }
-
-        .loader-spinner {
-            width: 16px;
-            height: 16px;
-            border: 3px solid rgba(0, 255, 136, 0.2);
-            border-top-color: #00ff88;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .loader-text {
-            font-size: 1.1rem;
-            color: #00ff88;
-            font-weight: 600;
-            animation: textSwitch 6s infinite;
-        }
-
-        @keyframes textSwitch {
-            0%, 25% { content: 'minecraft plugins'; }
-            26%, 50% { content: 'discord bots'; }
-            51%, 75% { content: 'cool projects'; }
-            76%, 100% { content: 'the future'; }
-        }
-
-        .loader-text::after {
-            content: 'minecraft plugins';
-            animation: textSwitchContent 6s infinite;
-        }
-
-        @keyframes textSwitchContent {
-            0%, 24% { content: 'minecraft plugins'; }
-            25%, 49% { content: 'discord bots'; }
-            50%, 74% { content: 'cool projects'; }
-            75%, 100% { content: 'the future'; }
-        }
-
-        /* Flat Modern Stats Cards - Inspired by Spacious74 */
-        .stats-container {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-            max-width: 900px;
-            padding: 0 1rem;
-        }
-
-        .stat-card {
-            position: relative;
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
-            padding: 2rem;
-            border-radius: 16px;
-            min-width: 200px;
-            flex: 1;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #00ff88, #8a2be2);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: #00ff88;
-            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3);
-        }
-
-        .stat-card:hover::before {
-            opacity: 1;
-        }
-
-        .stat-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .stat-number {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            color: #00ff88;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #909090;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Neon Button - Inspired by StealthWorm */
-        .neon-button {
-            position: relative;
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #fff;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            overflow: hidden;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-
-        .neon-button::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, #00ff88, #8a2be2, #00ffff, #ff00ff);
-            background-size: 300% 300%;
-            animation: gradientShift 4s ease infinite;
-            opacity: 1;
-            border-radius: 8px;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .neon-button::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
-            background: #000;
-            border-radius: 6px;
-            z-index: 1;
-        }
-
-        .neon-button span {
-            position: relative;
-            z-index: 2;
-        }
-
-        .neon-button:hover {
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.6), 0 0 60px rgba(138, 43, 226, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        section {
-            position: relative;
-            padding: 5rem 5%;
-            z-index: 2;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            text-align: center;
-            margin-bottom: 4rem;
-            color: #00ff88;
-            text-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #00ff88, transparent);
-        }
-
-        /* Project Cards - Inspired by pharmacist-sabot */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            position: relative;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(0, 0, 0, 0.98));
-            border-radius: 20px;
-            padding: 0;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0, 255, 136, 0.2);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #00ff88, #8a2be2, #00ffff);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: #00ff88;
-            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-header {
-            padding: 2rem 2rem 1rem;
-            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-        }
-
-        .project-icon {
-            font-size: 3rem;
-            display: inline-block;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 0 10px currentColor);
-        }
-
-        .project-title {
-            font-size: 1.8rem;
-            color: #00ff88;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .project-tag {
-            padding: 0.3rem 0.8rem;
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: #00ff88;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .project-stats {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.9rem;
-            color: #909090;
-        }
-
-        .project-body {
-            padding: 2rem;
-        }
-
-        .project-description {
-            color: #c0c0c0;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-features {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .project-features li {
-            color: #a0a0a0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .project-features li::before {
-            content: '▹';
-            color: #00ff88;
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-        }
-
-        .project-footer {
-            padding: 1.5rem 2rem;
-            border-top: 1px solid rgba(0, 255, 136, 0.1);
-            display: flex;
-            justify-content: center;
-        }
-
-        .project-button {
-            padding: 0.8rem 2rem;
-            background: linear-gradient(90deg, #00ff88, #8a2be2);
-            border: none;
-            border-radius: 8px;
-            color: #fff;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .project-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            line-height: 2;
-            color: #c0c0c0;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 2rem;
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            border-radius: 15px;
-        }
-
-        .terminal {
-            background: rgba(0, 0, 0, 0.95);
-            border: 2px solid #00ff88;
-            border-radius: 15px;
-            padding: 2rem;
-            max-width: 900px;
-            margin: 3rem auto;
-            box-shadow: 0 0 40px rgba(0, 255, 136, 0.4);
-        }
-
-        .terminal-header {
-            display: flex;
-            gap: 0.7rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .terminal-btn {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-        }
-
-        .terminal-btn.red { background: #ff5f56; }
-        .terminal-btn.yellow { background: #ffbd2e; }
-        .terminal-btn.green { background: #27c93f; }
-
-        .terminal-line {
-            color: #00ff88;
-            margin-bottom: 0.7rem;
-            font-size: clamp(0.85rem, 2vw, 1.1rem);
-        }
-
-        .terminal-line span {
-            color: #8a2be2;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            background: rgba(0, 0, 0, 0.95);
-            border-top: 2px solid rgba(0, 255, 136, 0.3);
-            z-index: 2;
-            position: relative;
-        }
-
-        footer p {
-            color: #707070;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100vh;
-                background: rgba(0, 0, 0, 0.98);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: left 0.3s;
-                gap: 3rem;
-                z-index: 999;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .hamburger {
-                display: flex;
-                cursor: pointer;
-                z-index: 1001;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-container {
-                flex-direction: column;
-            }
-
-            .stat-card {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="animated-bg">
@@ -632,34 +30,41 @@
         <h1 class="glitch">ithinkimcharlie</h1>
         <p>developer • creator • 16</p>
         
-        <div class="status-loader">
-            <div class="loader-spinner"></div>
-            <div class="loader-text"></div>
+        <!-- COMPONENT 1: Text Cycling Loader -->
+        <div class="loader">
+            <span>minecraft plugins</span>
+            <span>discord bots</span>
+            <span>cool projects</span>
         </div>
 
-        <div class="stats-container">
-            <div class="stat-card">
-                <span class="stat-icon">📥</span>
-                <span class="stat-number">1,052</span>
-                <span class="stat-label">Downloads</span>
+        <!-- COMPONENT 2: Stats Cards -->
+        <div class="stats-container-stretched">
+            <div class="stat-card-flat">
+                <div class="stat-inner">
+                    <span class="stat-value">1,052</span>
+                    <span class="stat-label">Total Downloads</span>
+                </div>
             </div>
-            <div class="stat-card">
-                <span class="stat-icon">🚀</span>
-                <span class="stat-number">4</span>
-                <span class="stat-label">Projects</span>
+            <div class="stat-card-flat">
+                <div class="stat-inner">
+                    <span class="stat-value">4</span>
+                    <span class="stat-label">Projects Live</span>
+                </div>
             </div>
-            <div class="stat-card">
-                <span class="stat-icon">⭐</span>
-                <span class="stat-number">6</span>
-                <span class="stat-label">Followers</span>
+            <div class="stat-card-flat">
+                <div class="stat-inner">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Followers</span>
+                </div>
             </div>
         </div>
 
+        <!-- COMPONENT 4: CTA Buttons -->
         <div class="cta-buttons">
-            <a href="https://dsc.gg/fruitsnacks" class="neon-button" target="_blank">
+            <a href="https://dsc.gg/fruitsnacks" class="add-server-btn" target="_blank">
                 <span>Join Discord</span>
             </a>
-            <a href="https://modrinth.com/user/therealmangoosey" class="neon-button" target="_blank">
+            <a href="https://modrinth.com/user/therealmangoosey" class="add-server-btn" target="_blank">
                 <span>View Modrinth</span>
             </a>
         </div>
@@ -671,40 +76,50 @@
             <p>hey! i'm charlie, a 16-year-old developer building discord bots and minecraft plugins. i code stuff that makes communities better and gameplay more interesting. always experimenting with new ideas and building cool projects.</p>
         </div>
 
-        <div class="terminal">
+        <!-- Terminal Style Info -->
+        <div class="terminal-card" style="max-width: 800px; margin: 0 auto;">
             <div class="terminal-header">
-                <div class="terminal-btn red"></div>
-                <div class="terminal-btn yellow"></div>
-                <div class="terminal-btn green"></div>
+                <div class="terminal-buttons">
+                    <span class="t-dot red"></span>
+                    <span class="t-dot yellow"></span>
+                    <span class="t-dot green"></span>
+                </div>
+                <div class="terminal-title">about_charlie.sh</div>
             </div>
-            <div class="terminal-line">charlie@dev:~$ <span>whoami</span></div>
-            <div class="terminal-line">16 year old developer | minecraft plugin creator</div>
-            <div class="terminal-line">charlie@dev:~$ <span>ls skills</span></div>
-            <div class="terminal-line">java | python | discord.py | spigot-api</div>
-            <div class="terminal-line">charlie@dev:~$ <span>cat motivation.txt</span></div>
-            <div class="terminal-line">building cool stuff that people actually use_</div>
+            <div class="terminal-content">
+                <p class="t-line"><span class="t-prompt">$</span> whoami</p>
+                <p class="t-line t-output">16 year old developer | minecraft plugin creator</p>
+                <p class="t-line"><span class="t-prompt">$</span> ls skills/</p>
+                <p class="t-line t-output">java  python  discord.py  spigot-api</p>
+                <p class="t-line"><span class="t-prompt">$</span> cat motivation.txt</p>
+                <p class="t-line t-output">building cool stuff that people actually use_</p>
+                <p class="t-line t-comment"># TODO: learn rust, contribute to open source, sleep more</p>
+            </div>
         </div>
     </section>
 
     <section id="projects">
         <h2 class="section-title">// my projects</h2>
+        
+        <!-- COMPONENT 3: Project Cards (Terminal Style) -->
         <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">⚡</div>
-                    <h3 class="project-title">MCOptimiser</h3>
-                    <div class="project-tags">
-                        <span class="project-tag">Minecraft</span>
-                        <span class="project-tag">Java</span>
-                        <span class="project-tag">Performance</span>
+            <div class="terminal-card">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="t-dot red"></span>
+                        <span class="t-dot yellow"></span>
+                        <span class="t-dot green"></span>
                     </div>
-                    <div class="project-stats">
-                        <span>📥 497 downloads</span>
-                        <span>⭐ 3 followers</span>
-                    </div>
+                    <div class="terminal-title">mcoptimiser.jar</div>
                 </div>
-                <div class="project-body">
+                <div class="terminal-content">
+                    <p class="t-line"><span class="t-prompt">$</span> project info</p>
+                    <p class="t-line t-output">⚡ MCOptimiser</p>
+                    <p class="t-line"><span class="t-prompt">$</span> cat stats.log</p>
+                    <p class="t-line t-output">Downloads: 497 | Followers: 3</p>
+                    
                     <p class="project-description">The all-in-one server optimization plugin for Minecraft 1.21.x that enhances performance through intelligent resource management.</p>
+                    
                     <ul class="project-features">
                         <li>Smart chunk loading & unloading</li>
                         <li>Entity optimization & culling</li>
@@ -712,26 +127,30 @@
                         <li>Redstone circuit optimization</li>
                     </ul>
                 </div>
-                <div class="project-footer">
-                    <a href="https://modrinth.com/plugin/mcoptimiser" class="project-button" target="_blank">View Project</a>
+                <div class="terminal-footer">
+                    <a href="https://modrinth.com/plugin/mcoptimiser" class="add-server-btn" target="_blank">
+                        <span>View Project</span>
+                    </a>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">🔒</div>
-                    <h3 class="project-title">ChestProtect</h3>
-                    <div class="project-tags">
-                        <span class="project-tag">Minecraft</span>
-                        <span class="project-tag">Security</span>
+            <div class="terminal-card">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="t-dot red"></span>
+                        <span class="t-dot yellow"></span>
+                        <span class="t-dot green"></span>
                     </div>
-                    <div class="project-stats">
-                        <span>📥 460 downloads</span>
-                        <span>⭐ 3 followers</span>
-                    </div>
+                    <div class="terminal-title">chestprotect.jar</div>
                 </div>
-                <div class="project-body">
+                <div class="terminal-content">
+                    <p class="t-line"><span class="t-prompt">$</span> project info</p>
+                    <p class="t-line t-output">🔒 ChestProtect</p>
+                    <p class="t-line"><span class="t-prompt">$</span> cat stats.log</p>
+                    <p class="t-line t-output">Downloads: 460 | Followers: 3</p>
+                    
                     <p class="project-description">The only chest protection you need! Secure your containers with an intuitive and lightweight protection system.</p>
+                    
                     <ul class="project-features">
                         <li>Simple protection commands</li>
                         <li>Minimal resource usage</li>
@@ -739,27 +158,61 @@
                         <li>Paper & Spigot support</li>
                     </ul>
                 </div>
-                <div class="project-footer">
-                    <a href="https://modrinth.com/plugin/chestprotect" class="project-button" target="_blank">View Project</a>
+                <div class="terminal-footer">
+                    <a href="https://modrinth.com/plugin/chestprotect" class="add-server-btn" target="_blank">
+                        <span>View Project</span>
+                    </a>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">🎵</div>
-                    <h3 class="project-title">FruitSnacks Music</h3>
-                    <div class="project-tags">
-                        <span class="project-tag">Discord</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Live</span>
+            <div class="terminal-card">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="t-dot red"></span>
+                        <span class="t-dot yellow"></span>
+                        <span class="t-dot green"></span>
                     </div>
-                    <div class="project-stats">
-                        <span>🎶 Active</span>
-                        <span>🤖 Bot</span>
-                    </div>
+                    <div class="terminal-title">joinmessage.jar</div>
                 </div>
-                <div class="project-body">
+                <div class="terminal-content">
+                    <p class="t-line"><span class="t-prompt">$</span> project info</p>
+                    <p class="t-line t-output">💬 JoinMessage</p>
+                    <p class="t-line"><span class="t-prompt">$</span> cat stats.log</p>
+                    <p class="t-line t-output">Downloads: 95 | Followers: 0</p>
+                    
+                    <p class="project-description">Advanced plugin that sends customizable private messages when players join your server.</p>
+                    
+                    <ul class="project-features">
+                        <li>Multi-line message support</li>
+                        <li>Color code customization</li>
+                        <li>Lightweight & efficient</li>
+                        <li>Easy configuration</li>
+                    </ul>
+                </div>
+                <div class="terminal-footer">
+                    <a href="https://modrinth.com/plugin/joinmessage" class="add-server-btn" target="_blank">
+                        <span>View Project</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="terminal-card">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="t-dot red"></span>
+                        <span class="t-dot yellow"></span>
+                        <span class="t-dot green"></span>
+                    </div>
+                    <div class="terminal-title">fruitsnacks_music.py</div>
+                </div>
+                <div class="terminal-content">
+                    <p class="t-line"><span class="t-prompt">$</span> bot status --check</p>
+                    <p class="t-line t-output">🎵 FruitSnacks Music Bot</p>
+                    <p class="t-line"><span class="t-prompt">$</span> uptime</p>
+                    <p class="t-line t-output">Status: 🟢 ONLINE | Active</p>
+                    
                     <p class="project-description">A feature-rich Discord music bot with high-quality audio streaming and playlist management. Available now!</p>
+                    
                     <ul class="project-features">
                         <li>High-quality audio playback</li>
                         <li>Playlist support & queue management</li>
@@ -767,8 +220,10 @@
                         <li>Advanced music controls</li>
                     </ul>
                 </div>
-                <div class="project-footer">
-                    <a href="https://dsc.gg/fruitsnacks" class="project-button" target="_blank">Add to Server</a>
+                <div class="terminal-footer">
+                    <a href="https://dsc.gg/fruitsnacks" class="add-server-btn" target="_blank">
+                        <span>Add to Server</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -777,10 +232,10 @@
     <section id="contact">
         <h2 class="section-title">// let's connect</h2>
         <div class="about-content">
-            <h3 style="color: #8a2be2; margin-bottom: 1.5rem;">ready to collaborate?</h3>
+            <h3 style="color: #8a2be2; margin-bottom: 1.5rem; font-size: 1.5rem;">ready to collaborate?</h3>
             <p>join my discord for commissions, project updates, and to see what i'm building. always open to new ideas and opportunities.</p>
             <div style="margin-top: 2rem;">
-                <a href="https://dsc.gg/fruitsnacks" class="neon-button" target="_blank">
+                <a href="https://dsc.gg/fruitsnacks" class="add-server-btn" target="_blank">
                     <span>Join Discord Server</span>
                 </a>
             </div>
