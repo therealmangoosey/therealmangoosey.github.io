@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="animated-bg">
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <div class="animated-bg" id="galaxyBg">
         <div class="galaxy" id="galaxy"></div>
     </div>
+
+    <div class="back-to-top" id="backToTop"></div>
 
     <nav>
         <div class="logo">&lt;ithinkimcharlie/&gt;</div>
@@ -22,55 +26,36 @@
             <li><a href="#home">home</a></li>
             <li><a href="#about">about</a></li>
             <li><a href="#projects">projects</a></li>
+            <li><a href="#tech">tech</a></li>
+            <li><a href="#status">status</a></li>
             <li><a href="#contact">contact</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
         <h1 class="glitch">ithinkimcharlie</h1>
-        <p>developer • creator • 16</p>
+        <p class="typing">developer • creator • 16</p>
         
-        <!-- COMPONENT 1: Text Cycling Loader with "developing" prefix -->
-        <div class="loader-container">
-            <span class="loader-prefix">developing</span>
-            <div class="loader">
-                <span>minecraft plugins</span>
-                <span>discord bots</span>
-                <span>cool projects</span>
+        <div class="stats-container">
+            <div class="stat-box glow-card">
+                <div class="stat-number" data-target="1052">0</div>
+                <div class="stat-label">total downloads</div>
+            </div>
+            <div class="stat-box glow-card">
+                <div class="stat-number" data-target="4">0</div>
+                <div class="stat-label">projects live</div>
+            </div>
+            <div class="stat-box glow-card">
+                <div class="stat-number" data-target="6">0</div>
+                <div class="stat-label">followers</div>
             </div>
         </div>
 
-        <!-- COMPONENT 2: Stats Cards -->
-        <div class="stats-container-stretched">
-            <div class="stat-card-flat">
-                <div class="stat-inner">
-                    <span class="stat-value">1,052</span>
-                    <span class="stat-label">Total Downloads</span>
-                </div>
-            </div>
-            <div class="stat-card-flat">
-                <div class="stat-inner">
-                    <span class="stat-value">4</span>
-                    <span class="stat-label">Projects Live</span>
-                </div>
-            </div>
-            <div class="stat-card-flat">
-                <div class="stat-inner">
-                    <span class="stat-value">6</span>
-                    <span class="stat-label">Followers</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- COMPONENT 4: CTA Buttons (StealthWorm Galaxy style) -->
         <div class="cta-buttons">
-            <a href="https://dsc.gg/fruitsnacks" class="add-server-btn" target="_blank">
-                <span>Join Discord</span>
-            </a>
-            <a href="https://modrinth.com/user/therealmangoosey" class="add-server-btn" target="_blank">
-                <span>View Modrinth</span>
-            </a>
+            <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary" target="_blank">join discord</a>
+            <a href="https://modrinth.com/user/therealmangoosey" class="btn btn-secondary" target="_blank">view modrinth</a>
         </div>
+        <div class="scroll-indicator"></div>
     </section>
 
     <section id="about">
@@ -79,173 +64,155 @@
             <p>hey! i'm charlie, a 16-year-old developer building discord bots and minecraft plugins. i code stuff that makes communities better and gameplay more interesting. always experimenting with new ideas and building cool projects.</p>
         </div>
 
-        <!-- Terminal Style Info -->
-        <div class="terminal-card" style="max-width: 800px; margin: 0 auto;">
+        <div class="terminal">
             <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <span class="t-dot red"></span>
-                    <span class="t-dot yellow"></span>
-                    <span class="t-dot green"></span>
-                </div>
-                <div class="terminal-title">about_charlie.sh</div>
+                <div class="terminal-btn red"></div>
+                <div class="terminal-btn yellow"></div>
+                <div class="terminal-btn green"></div>
             </div>
-            <div class="terminal-content">
-                <p class="t-line"><span class="t-prompt">$</span> whoami</p>
-                <p class="t-line t-output">16 year old developer | minecraft plugin creator</p>
-                <p class="t-line"><span class="t-prompt">$</span> ls skills/</p>
-                <p class="t-line t-output">java  python  discord.py  spigot-api</p>
-                <p class="t-line"><span class="t-prompt">$</span> cat motivation.txt</p>
-                <p class="t-line t-output">building cool stuff that people actually use_</p>
-                <p class="t-line t-comment"># TODO: learn rust, contribute to open source, sleep more</p>
-            </div>
+            <div class="terminal-line">charlie@dev:~$ <span>whoami</span></div>
+            <div class="terminal-line">16 year old developer | minecraft plugin creator</div>
+            <div class="terminal-line">charlie@dev:~$ <span>ls skills</span></div>
+            <div class="terminal-line">java | python | discord.py | spigot-api</div>
+            <div class="terminal-line">charlie@dev:~$ <span>cat motivation.txt</span></div>
+            <div class="terminal-line">building cool stuff that people actually use_</div>
+            <div class="terminal-line" style="margin-top: 1rem; color: #404040; font-size: 0.9rem;">// TODO: learn rust, contribute to open source, sleep more</div>
         </div>
     </section>
 
     <section id="projects">
         <h2 class="section-title">// my projects</h2>
-        
-        <!-- COMPONENT 3: Project Cards (pharmacist-sabot style) -->
         <div class="projects-grid">
-            <div class="terminal-card">
-                <div class="terminal-header">
-                    <div class="terminal-buttons">
-                        <span class="t-dot red"></span>
-                        <span class="t-dot yellow"></span>
-                        <span class="t-dot green"></span>
+            <div class="project-card">
+                <div class="project-icon">⚡</div>
+                <h3 class="project-title">MCOptimiser</h3>
+                <div class="project-stats">
+                    <div class="project-stat">
+                        <span>📥</span> 497 downloads
                     </div>
-                    <div class="terminal-title">mcoptimiser.jar</div>
-                </div>
-                <div class="terminal-content">
-                    <h3 class="project-title">⚡ MCOptimiser</h3>
-                    <div class="project-stats">
-                        <span>📥 497 downloads</span>
-                        <span>⭐ 3 followers</span>
+                    <div class="project-stat">
+                        <span>⭐</span> 3 followers
                     </div>
-                    
-                    <p class="project-description">The all-in-one server optimization plugin for Minecraft 1.21.x that enhances performance through intelligent resource management.</p>
-                    
-                    <ul class="project-features">
-                        <li>Smart chunk loading & unloading</li>
-                        <li>Entity optimization & culling</li>
-                        <li>Memory leak detection</li>
-                        <li>Redstone circuit optimization</li>
-                    </ul>
                 </div>
-                <div class="terminal-footer">
-                    <a href="https://modrinth.com/plugin/mcoptimiser" class="add-server-btn" target="_blank">
-                        <span>View Project</span>
-                    </a>
-                </div>
+                <p class="project-description">The all-in-one server optimization plugin for Minecraft 1.21.x that enhances performance through intelligent resource management.</p>
+                <ul class="project-features">
+                    <li>Smart chunk loading & unloading</li>
+                    <li>Entity optimization & culling</li>
+                    <li>Memory leak detection</li>
+                    <li>Redstone circuit optimization</li>
+                </ul>
             </div>
 
-            <div class="terminal-card">
-                <div class="terminal-header">
-                    <div class="terminal-buttons">
-                        <span class="t-dot red"></span>
-                        <span class="t-dot yellow"></span>
-                        <span class="t-dot green"></span>
+            <div class="project-card">
+                <div class="project-icon">🔒</div>
+                <h3 class="project-title">ChestProtect</h3>
+                <div class="project-stats">
+                    <div class="project-stat">
+                        <span>📥</span> 460 downloads
                     </div>
-                    <div class="terminal-title">chestprotect.jar</div>
-                </div>
-                <div class="terminal-content">
-                    <h3 class="project-title">🔒 ChestProtect</h3>
-                    <div class="project-stats">
-                        <span>📥 460 downloads</span>
-                        <span>⭐ 3 followers</span>
+                    <div class="project-stat">
+                        <span>⭐</span> 3 followers
                     </div>
-                    
-                    <p class="project-description">The only chest protection you need! Secure your containers with an intuitive and lightweight protection system.</p>
-                    
-                    <ul class="project-features">
-                        <li>Simple protection commands</li>
-                        <li>Minimal resource usage</li>
-                        <li>Compatible with 1.21.4</li>
-                        <li>Paper & Spigot support</li>
-                    </ul>
                 </div>
-                <div class="terminal-footer">
-                    <a href="https://modrinth.com/plugin/chestprotect" class="add-server-btn" target="_blank">
-                        <span>View Project</span>
-                    </a>
-                </div>
+                <p class="project-description">The only chest protection you need! Secure your containers with an intuitive and lightweight protection system.</p>
+                <ul class="project-features">
+                    <li>Simple protection commands</li>
+                    <li>Minimal resource usage</li>
+                    <li>Compatible with 1.21.4</li>
+                    <li>Paper & Spigot support</li>
+                </ul>
             </div>
 
-            <div class="terminal-card">
-                <div class="terminal-header">
-                    <div class="terminal-buttons">
-                        <span class="t-dot red"></span>
-                        <span class="t-dot yellow"></span>
-                        <span class="t-dot green"></span>
+            <div class="project-card">
+                <div class="project-icon">💬</div>
+                <h3 class="project-title">JoinMessage</h3>
+                <div class="project-stats">
+                    <div class="project-stat">
+                        <span>📥</span> 95 downloads
                     </div>
-                    <div class="terminal-title">joinmessage.jar</div>
-                </div>
-                <div class="terminal-content">
-                    <h3 class="project-title">💬 JoinMessage</h3>
-                    <div class="project-stats">
-                        <span>📥 95 downloads</span>
-                        <span>⭐ 0 followers</span>
+                    <div class="project-stat">
+                        <span>⭐</span> 0 followers
                     </div>
-                    
-                    <p class="project-description">Advanced plugin that sends customizable private messages when players join your server.</p>
-                    
-                    <ul class="project-features">
-                        <li>Multi-line message support</li>
-                        <li>Color code customization</li>
-                        <li>Lightweight & efficient</li>
-                        <li>Easy configuration</li>
-                    </ul>
                 </div>
-                <div class="terminal-footer">
-                    <a href="https://modrinth.com/plugin/joinmessage" class="add-server-btn" target="_blank">
-                        <span>View Project</span>
-                    </a>
-                </div>
+                <p class="project-description">Advanced plugin that sends customizable private messages when players join your server.</p>
+                <ul class="project-features">
+                    <li>Multi-line message support</li>
+                    <li>Color code customization</li>
+                    <li>Lightweight & efficient</li>
+                    <li>Easy configuration</li>
+                </ul>
             </div>
 
-            <div class="terminal-card">
-                <div class="terminal-header">
-                    <div class="terminal-buttons">
-                        <span class="t-dot red"></span>
-                        <span class="t-dot yellow"></span>
-                        <span class="t-dot green"></span>
+            <div class="project-card">
+                <div class="project-icon">🎵</div>
+                <h3 class="project-title">FruitSnacks Music</h3>
+                <div class="project-stats">
+                    <div class="project-stat">
+                        <span>🎶</span> Active
                     </div>
-                    <div class="terminal-title">fruitsnacks_music.py</div>
-                </div>
-                <div class="terminal-content">
-                    <h3 class="project-title">🎵 FruitSnacks Music</h3>
-                    <div class="project-stats">
-                        <span>🎶 Active</span>
-                        <span>🤖 Discord Bot</span>
+                    <div class="project-stat">
+                        <span>🤖</span> Discord Bot
                     </div>
-                    
-                    <p class="project-description">A feature-rich Discord music bot with high-quality audio streaming and playlist management. Available now!</p>
-                    
-                    <ul class="project-features">
-                        <li>High-quality audio playback</li>
-                        <li>Playlist support & queue management</li>
-                        <li>Multiple source support</li>
-                        <li>Advanced music controls</li>
-                    </ul>
                 </div>
-                <div class="terminal-footer">
-                    <a href="https://dsc.gg/fruitsnacks" class="add-server-btn" target="_blank">
-                        <span>Add to Server</span>
-                    </a>
-                </div>
+                <p class="project-description">A feature-rich Discord music bot with high-quality audio streaming and playlist management. Available now!</p>
+                <ul class="project-features">
+                    <li>High-quality audio playback</li>
+                    <li>Playlist support & queue management</li>
+                    <li>Multiple source support</li>
+                    <li>Advanced music controls</li>
+                </ul>
+                <a href="https://dsc.gg/fruitsnacks" class="animated-border-btn" target="_blank">Add to Server</a>
             </div>
+        </div>
+    </section>
+
+    <section id="tech">
+        <h2 class="section-title">// tech stack</h2>
+        <div class="tech-stack">
+            <div class="tech-item">☕ Java</div>
+            <div class="tech-item">🐍 Python</div>
+            <div class="tech-item">🎮 Spigot API</div>
+            <div class="tech-item">💬 Discord.py</div>
+            <div class="tech-item">🗄️ SQL</div>
+            <div class="tech-item">🔧 Git</div>
+        </div>
+
+        <div class="links-grid">
+            <a href="https://modrinth.com/user/therealmangoosey" class="link-card" target="_blank">
+                <div class="link-icon">📦</div>
+                <div class="link-title">Modrinth</div>
+            </a>
+            <a href="https://dsc.gg/fruitsnacks" class="link-card" target="_blank">
+                <div class="link-icon">💬</div>
+                <div class="link-title">Discord</div>
+            </a>
+            <a href="https://github.com/therealmangoosey" class="link-card" target="_blank">
+                <div class="link-icon">💻</div>
+                <div class="link-title">GitHub</div>
+            </a>
+        </div>
+    </section>
+
+    <section id="status">
+        <h2 class="section-title">// current status</h2>
+        
+        <div class="loader"></div>
+        
+        <div class="status-box glow-card">
+            <div>
+                <span class="status-indicator"></span>
+                <strong class="animated-border-btn">currently coding</strong>
+            </div>
+            <p class="status-text">working on fruitsnacks music bot + plugin optimizations</p>
         </div>
     </section>
 
     <section id="contact">
         <h2 class="section-title">// let's connect</h2>
-        <div class="about-content">
-            <h3 style="color: #8a2be2; margin-bottom: 1.5rem; font-size: 1.5rem;">ready to collaborate?</h3>
+        <div class="contact-card">
+            <h3>ready to collaborate?</h3>
             <p>join my discord for commissions, project updates, and to see what i'm building. always open to new ideas and opportunities.</p>
-            <div style="margin-top: 2rem;">
-                <a href="https://dsc.gg/fruitsnacks" class="add-server-btn" target="_blank">
-                    <span>Join Discord Server</span>
-                </a>
-            </div>
+            <a href="https://dsc.gg/fruitsnacks" class="btn btn-secondary" target="_blank">join discord server</a>
         </div>
     </section>
 
@@ -254,8 +221,63 @@
     </footer>
 
     <script>
-        // Generate stars
+        // Cursor trail effect with custom cursor
+        const cursorDot = document.getElementById('cursorDot');
+        const trails = [];
+        const trailLength = 15;
+
+        // Only show custom cursor on desktop
+        if (window.innerWidth > 768) {
+            for (let i = 0; i < trailLength; i++) {
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                document.body.appendChild(trail);
+                trails.push(trail);
+            }
+
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.2;
+                cursorY += (mouseY - cursorY) * 0.2;
+
+                cursorDot.style.left = (cursorX - 10) + 'px';
+                cursorDot.style.top = (cursorY - 10) + 'px';
+
+                let prevX = cursorX;
+                let prevY = cursorY;
+
+                trails.forEach((trail, index) => {
+                    const currentX = parseFloat(trail.style.left) || cursorX;
+                    const currentY = parseFloat(trail.style.top) || cursorY;
+                    
+                    const newX = currentX + (prevX - currentX) * 0.3;
+                    const newY = currentY + (prevY - currentY) * 0.3;
+                    
+                    trail.style.left = (newX - 5) + 'px';
+                    trail.style.top = (newY - 5) + 'px';
+                    trail.style.opacity = (trailLength - index) / trailLength * 0.6;
+                    
+                    prevX = currentX;
+                    prevY = currentY;
+                });
+
+                requestAnimationFrame(animateCursor);
+            }
+
+            animateCursor();
+        }
+
+        // Galaxy effect
         const galaxy = document.getElementById('galaxy');
+        
+        // More stars spread across larger area
         for (let i = 0; i < 500; i++) {
             const star = document.createElement('div');
             star.className = 'star';
@@ -265,21 +287,106 @@
             star.style.left = Math.random() * 100 + '%';
             star.style.top = Math.random() * 300 + '%';
             star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.animationDuration = (Math.random() * 4 + 2) + 's';
             galaxy.appendChild(star);
         }
 
-        // Mobile menu
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        // Nebulas
+        const colors = ['#1e3a8a', '#7c3aed', '#06b6d4', '#3b82f6', '#8b5cf6', '#0ea5e9'];
+        for (let i = 0; i < 12; i++) {
+            const nebula = document.createElement('div');
+            nebula.className = 'nebula';
+            const size = Math.random() * 600 + 400;
+            nebula.style.width = size + 'px';
+            nebula.style.height = size + 'px';
+            nebula.style.left = Math.random() * 100 + '%';
+            nebula.style.top = Math.random() * 300 + '%';
+            nebula.style.background = colors[Math.floor(Math.random() * colors.length)];
+            nebula.style.animationDelay = Math.random() * 8 + 's';
+            nebula.style.animationDuration = (Math.random() * 8 + 12) + 's';
+            galaxy.appendChild(nebula);
+        }
+
+        const galaxyBg = document.getElementById('galaxyBg');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            // Back to top button
+            if (scrollPos > windowHeight * 0.5) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            // Hide scroll indicator
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (scrollIndicator) {
+                if (scrollPos > 100) {
+                    scrollIndicator.style.opacity = '0';
+                    scrollIndicator.style.pointerEvents = 'none';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                    scrollIndicator.style.pointerEvents = 'all';
+                }
+            }
         });
 
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
+        // Back to top functionality
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animated counter
+        const animateCounter = (element) => {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            updateCounter();
+        };
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    
+                    if (entry.target.classList.contains('stat-number')) {
+                        animateCounter(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.about-content, .terminal, .status-box, .contact-card, .tech-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('.stat-number').forEach(el => {
+            observer.observe(el);
         });
 
         // Smooth scrolling
@@ -293,6 +400,34 @@
                 navLinks.classList.remove('active');
             });
         });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Parallax effect (desktop only)
+        if (window.innerWidth > 768) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.hero');
+                
+                parallaxElements.forEach(el => {
+                    const speed = 0.3;
+                    el.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        }
     </script>
 </body>
 </html>
