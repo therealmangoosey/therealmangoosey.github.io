@@ -30,11 +30,14 @@
         <h1 class="glitch">ithinkimcharlie</h1>
         <p>developer • creator • 16</p>
         
-        <!-- COMPONENT 1: Text Cycling Loader -->
-        <div class="loader">
-            <span>minecraft plugins</span>
-            <span>discord bots</span>
-            <span>cool projects</span>
+        <!-- COMPONENT 1: Text Cycling Loader with "developing" prefix -->
+        <div class="loader-container">
+            <span class="loader-prefix">developing</span>
+            <div class="loader">
+                <span>minecraft plugins</span>
+                <span>discord bots</span>
+                <span>cool projects</span>
+            </div>
         </div>
 
         <!-- COMPONENT 2: Stats Cards -->
@@ -59,7 +62,7 @@
             </div>
         </div>
 
-        <!-- COMPONENT 4: CTA Buttons -->
+        <!-- COMPONENT 4: CTA Buttons (StealthWorm Galaxy style) -->
         <div class="cta-buttons">
             <a href="https://dsc.gg/fruitsnacks" class="add-server-btn" target="_blank">
                 <span>Join Discord</span>
@@ -101,7 +104,7 @@
     <section id="projects">
         <h2 class="section-title">// my projects</h2>
         
-        <!-- COMPONENT 3: Project Cards (Terminal Style) -->
+        <!-- COMPONENT 3: Project Cards (pharmacist-sabot style) -->
         <div class="projects-grid">
             <div class="terminal-card">
                 <div class="terminal-header">
@@ -113,10 +116,11 @@
                     <div class="terminal-title">mcoptimiser.jar</div>
                 </div>
                 <div class="terminal-content">
-                    <p class="t-line"><span class="t-prompt">$</span> project info</p>
-                    <p class="t-line t-output">⚡ MCOptimiser</p>
-                    <p class="t-line"><span class="t-prompt">$</span> cat stats.log</p>
-                    <p class="t-line t-output">Downloads: 497 | Followers: 3</p>
+                    <h3 class="project-title">⚡ MCOptimiser</h3>
+                    <div class="project-stats">
+                        <span>📥 497 downloads</span>
+                        <span>⭐ 3 followers</span>
+                    </div>
                     
                     <p class="project-description">The all-in-one server optimization plugin for Minecraft 1.21.x that enhances performance through intelligent resource management.</p>
                     
@@ -144,10 +148,11 @@
                     <div class="terminal-title">chestprotect.jar</div>
                 </div>
                 <div class="terminal-content">
-                    <p class="t-line"><span class="t-prompt">$</span> project info</p>
-                    <p class="t-line t-output">🔒 ChestProtect</p>
-                    <p class="t-line"><span class="t-prompt">$</span> cat stats.log</p>
-                    <p class="t-line t-output">Downloads: 460 | Followers: 3</p>
+                    <h3 class="project-title">🔒 ChestProtect</h3>
+                    <div class="project-stats">
+                        <span>📥 460 downloads</span>
+                        <span>⭐ 3 followers</span>
+                    </div>
                     
                     <p class="project-description">The only chest protection you need! Secure your containers with an intuitive and lightweight protection system.</p>
                     
@@ -175,10 +180,11 @@
                     <div class="terminal-title">joinmessage.jar</div>
                 </div>
                 <div class="terminal-content">
-                    <p class="t-line"><span class="t-prompt">$</span> project info</p>
-                    <p class="t-line t-output">💬 JoinMessage</p>
-                    <p class="t-line"><span class="t-prompt">$</span> cat stats.log</p>
-                    <p class="t-line t-output">Downloads: 95 | Followers: 0</p>
+                    <h3 class="project-title">💬 JoinMessage</h3>
+                    <div class="project-stats">
+                        <span>📥 95 downloads</span>
+                        <span>⭐ 0 followers</span>
+                    </div>
                     
                     <p class="project-description">Advanced plugin that sends customizable private messages when players join your server.</p>
                     
@@ -206,10 +212,11 @@
                     <div class="terminal-title">fruitsnacks_music.py</div>
                 </div>
                 <div class="terminal-content">
-                    <p class="t-line"><span class="t-prompt">$</span> bot status --check</p>
-                    <p class="t-line t-output">🎵 FruitSnacks Music Bot</p>
-                    <p class="t-line"><span class="t-prompt">$</span> uptime</p>
-                    <p class="t-line t-output">Status: 🟢 ONLINE | Active</p>
+                    <h3 class="project-title">🎵 FruitSnacks Music</h3>
+                    <div class="project-stats">
+                        <span>🎶 Active</span>
+                        <span>🤖 Discord Bot</span>
+                    </div>
                     
                     <p class="project-description">A feature-rich Discord music bot with high-quality audio streaming and playlist management. Available now!</p>
                     
