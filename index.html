@@ -4,7 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ithinkimcharlie - Developer & Creator</title>
-    <style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <div class="animated-bg" id="galaxyBg">
+        <div class="galaxy" id="galaxy"></div>
+    </div>
+
+    <div class="back-to-top" id="backToTop"></div>
+
+    <nav>
+        <div class="logo">&lt;ithinkimcharlie/&gt;</div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">home</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#tech">tech</a></li>
+            <li><a href="#status">status</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1 class="glitch">ithinkimcharlie</h1>
+        <p class="typing">developer • creator • 16</p>
+        
+        <div class="stats-container">
+            <div class="stat-box glow-card">
+                <div class="stat-number" data-target="1052">0</div>
+                <div class="stat-label">total downloads</div>
+            </div>
+            <div class="stat-box glow-card">
+                <div class="stat-number" data-target="4">0</div>
+                <div class="stat-label">projects live</div>
+            </div>
+            <div class="stat-box glow-card">
+                <div class="stat-number" data-target="6">0</div>
+                <div class="stat-label">followers</div>
+            </div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary" target="_blank">join discord</a>
+            <a href="https://modrinth.com/user/therealmangoosey" class="btn btn-secondary" target="_blank">view modrinth</a>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
         * {
             margin: 0;
             padding: 0;
@@ -1260,7 +1312,7 @@
                     <li>Multiple source support</li>
                     <li>Advanced music controls</li>
                 </ul>
-                <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary" target="_blank" style="margin-top: 1rem; display: inline-block;">Add to Server</a>
+                <a href="https://dsc.gg/fruitsnacks" class="animated-border-btn" target="_blank">Add to Server</a>
             </div>
         </div>
     </section>
@@ -1294,10 +1346,13 @@
 
     <section id="status">
         <h2 class="section-title">// current status</h2>
-        <div class="status-box">
+        
+        <div class="loader"></div>
+        
+        <div class="status-box glow-card">
             <div>
                 <span class="status-indicator"></span>
-                <strong style="color: #00ff88; font-size: clamp(1.1rem, 3vw, 1.3rem);">currently coding</strong>
+                <strong class="animated-border-btn">currently coding</strong>
             </div>
             <p class="status-text">working on fruitsnacks music bot + plugin optimizations</p>
         </div>
@@ -1317,12 +1372,13 @@
     </footer>
 
     <script>
-        // Cursor trail effect (desktop only)
-        if (window.innerWidth > 768) {
-            const cursorDot = document.getElementById('cursorDot');
-            const trails = [];
-            const trailLength = 15;
+        // Cursor trail effect with custom cursor
+        const cursorDot = document.getElementById('cursorDot');
+        const trails = [];
+        const trailLength = 15;
 
+        // Only show custom cursor on desktop
+        if (window.innerWidth > 768) {
             for (let i = 0; i < trailLength; i++) {
                 const trail = document.createElement('div');
                 trail.className = 'cursor-trail';
@@ -1339,11 +1395,11 @@
             });
 
             function animateCursor() {
-                cursorX += (mouseX - cursorX) * 0.15;
-                cursorY += (mouseY - cursorY) * 0.15;
+                cursorX += (mouseX - cursorX) * 0.2;
+                cursorY += (mouseY - cursorY) * 0.2;
 
-                cursorDot.style.left = cursorX + 'px';
-                cursorDot.style.top = cursorY + 'px';
+                cursorDot.style.left = (cursorX - 10) + 'px';
+                cursorDot.style.top = (cursorY - 10) + 'px';
 
                 let prevX = cursorX;
                 let prevY = cursorY;
@@ -1355,8 +1411,8 @@
                     const newX = currentX + (prevX - currentX) * 0.3;
                     const newY = currentY + (prevY - currentY) * 0.3;
                     
-                    trail.style.left = newX + 'px';
-                    trail.style.top = newY + 'px';
+                    trail.style.left = (newX - 5) + 'px';
+                    trail.style.top = (newY - 5) + 'px';
                     trail.style.opacity = (trailLength - index) / trailLength * 0.6;
                     
                     prevX = currentX;
