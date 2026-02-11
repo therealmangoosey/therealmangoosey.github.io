@@ -3,431 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ithinkimcharlie - Developer & Creator</title>
+    <title>ithinkimcharlie</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="cursor-dot" id="cursorDot"></div>
-
-    <div class="animated-bg" id="galaxyBg">
-        <div class="galaxy" id="galaxy"></div>
-    </div>
-
-    <div class="back-to-top" id="backToTop"></div>
-
-    <nav>
-        <div class="logo">&lt;ithinkimcharlie/&gt;</div>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <header>
+        <div class="container">
+            <div class="logo">&lt;ithinkimcharlie/&gt;</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">home</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#projects">projects</a></li>
+                    <li><a href="#tech">tech</a></li>
+                    <li><a href="#status">status</a></li>
+                    <li><a href="#contact">contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">home</a></li>
-            <li><a href="#about">about</a></li>
-            <li><a href="#projects">projects</a></li>
-            <li><a href="#tech">tech</a></li>
-            <li><a href="#status">status</a></li>
-            <li><a href="#contact">contact</a></li>
-        </ul>
-    </nav>
+    </header>
 
-    <section id="home" class="hero">
-        <h1 class="glitch">ithinkimcharlie</h1>
-        <p class="typing">developer • creator • 16</p>
-        
-        <div class="stats-container">
-            <div class="stat-box glow-card">
-                <div class="stat-number" data-target="1052">0</div>
-                <div class="stat-label">total downloads</div>
-            </div>
-            <div class="stat-box glow-card">
-                <div class="stat-number" data-target="4">0</div>
-                <div class="stat-label">projects live</div>
-            </div>
-            <div class="stat-box glow-card">
-                <div class="stat-number" data-target="6">0</div>
-                <div class="stat-label">followers</div>
-            </div>
-        </div>
-
-        <div class="cta-buttons">
-            <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary" target="_blank">join discord</a>
-            <a href="https://modrinth.com/user/therealmangoosey" class="btn btn-secondary" target="_blank">view modrinth</a>
-        </div>
-        <div class="scroll-indicator"></div>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title">// about me</h2>
-        <div class="about-content">
-            <p>hey! i'm charlie, a 16-year-old developer building discord bots and minecraft plugins. i code stuff that makes communities better and gameplay more interesting. always experimenting with new ideas and building cool projects.</p>
-        </div>
-
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-btn red"></div>
-                <div class="terminal-btn yellow"></div>
-                <div class="terminal-btn green"></div>
-            </div>
-            <div class="terminal-line">charlie@dev:~$ <span>whoami</span></div>
-            <div class="terminal-line">16 year old developer | minecraft plugin creator</div>
-            <div class="terminal-line">charlie@dev:~$ <span>ls skills</span></div>
-            <div class="terminal-line">java | python | discord.py | spigot-api</div>
-            <div class="terminal-line">charlie@dev:~$ <span>cat motivation.txt</span></div>
-            <div class="terminal-line">building cool stuff that people actually use_</div>
-            <div class="terminal-line" style="margin-top: 1rem; color: #404040; font-size: 0.9rem;">// TODO: learn rust, contribute to open source, sleep more</div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2 class="section-title">// my projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-icon">⚡</div>
-                <h3 class="project-title">MCOptimiser</h3>
-                <div class="project-stats">
-                    <div class="project-stat">
-                        <span>📥</span> 497 downloads
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>ithinkimcharlie</h1>
+                <p class="tagline">developer • creator • <span class="highlight">14</span></p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">total downloads</div>
                     </div>
-                    <div class="project-stat">
-                        <span>⭐</span> 3 followers
+                    <div class="stat-item">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">projects live</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">followers</div>
                     </div>
                 </div>
-                <p class="project-description">The all-in-one server optimization plugin for Minecraft 1.21.x that enhances performance through intelligent resource management.</p>
-                <ul class="project-features">
-                    <li>Smart chunk loading & unloading</li>
-                    <li>Entity optimization & culling</li>
-                    <li>Memory leak detection</li>
-                    <li>Redstone circuit optimization</li>
-                </ul>
-            </div>
 
-            <div class="project-card">
-                <div class="project-icon">🔒</div>
-                <h3 class="project-title">ChestProtect</h3>
-                <div class="project-stats">
-                    <div class="project-stat">
-                        <span>📥</span> 460 downloads
+                <div class="cta-buttons">
+                    <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary">join discord</a>
+                    <a href="https://modrinth.com/user/therealmangoosey" class="btn btn-secondary">view modrinth</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>// about me</h2>
+                <p class="about-intro">hey! i'm charlie, a <span class="highlight">14 yrs old</span> developer building discord bots and minecraft plugins. i code stuff that makes communities better and gameplay more interesting. always experimenting with new ideas and building cool projects.</p>
+                
+                <div class="terminal">
+                    <div class="terminal-line">
+                        <span class="prompt">charlie@dev:~$</span> whoami
                     </div>
-                    <div class="project-stat">
-                        <span>⭐</span> 3 followers
+                    <div class="terminal-output">14 yrs old developer | minecraft plugin creator</div>
+                    
+                    <div class="terminal-line">
+                        <span class="prompt">charlie@dev:~$</span> ls skills
+                    </div>
+                    <div class="terminal-output">java | python | discord.py | spigot-api</div>
+                    
+                    <div class="terminal-line">
+                        <span class="prompt">charlie@dev:~$</span> cat motivation.txt
+                    </div>
+                    <div class="terminal-output">building cool stuff that people actually use_</div>
+                    
+                    <div class="terminal-comment">// TODO: learn rust, contribute to open source, sleep more</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>// my projects</h2>
+                
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-icon">⚡</div>
+                        <h3>MCOptimiser</h3>
+                        <div class="project-stats">
+                            <span>📥 497 downloads</span>
+                            <span>⭐ 3 followers</span>
+                        </div>
+                        <p>The all-in-one server optimization plugin for Minecraft 1.21.x that enhances performance through intelligent resource management.</p>
+                        <ul class="project-features">
+                            <li>Smart chunk loading & unloading</li>
+                            <li>Entity optimization & culling</li>
+                            <li>Memory leak detection</li>
+                            <li>Redstone circuit optimization</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">🔒</div>
+                        <h3>ChestProtect</h3>
+                        <div class="project-stats">
+                            <span>📥 460 downloads</span>
+                            <span>⭐ 3 followers</span>
+                        </div>
+                        <p>The only chest protection you need! Secure your containers with an intuitive and lightweight protection system.</p>
+                        <ul class="project-features">
+                            <li>Simple protection commands</li>
+                            <li>Minimal resource usage</li>
+                            <li>Compatible with 1.21.4</li>
+                            <li>Paper & Spigot support</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">💬</div>
+                        <h3>JoinMessage</h3>
+                        <div class="project-stats">
+                            <span>📥 95 downloads</span>
+                            <span>⭐ 0 followers</span>
+                        </div>
+                        <p>Advanced plugin that sends customizable private messages when players join your server.</p>
+                        <ul class="project-features">
+                            <li>Multi-line message support</li>
+                            <li>Color code customization</li>
+                            <li>Lightweight & efficient</li>
+                            <li>Easy configuration</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-card featured">
+                        <div class="project-icon">🎵</div>
+                        <h3>FruitSnacks Music</h3>
+                        <div class="project-stats">
+                            <span>🎶 Active</span>
+                            <span>🤖 Discord Bot</span>
+                        </div>
+                        <p>A feature-rich Discord music bot with high-quality audio streaming and playlist management. Available now!</p>
+                        <ul class="project-features">
+                            <li>High-quality audio playback</li>
+                            <li>Playlist support & queue management</li>
+                            <li>Multiple source support</li>
+                            <li>Advanced music controls</li>
+                        </ul>
+                        <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary">Add to Server</a>
                     </div>
                 </div>
-                <p class="project-description">The only chest protection you need! Secure your containers with an intuitive and lightweight protection system.</p>
-                <ul class="project-features">
-                    <li>Simple protection commands</li>
-                    <li>Minimal resource usage</li>
-                    <li>Compatible with 1.21.4</li>
-                    <li>Paper & Spigot support</li>
-                </ul>
             </div>
+        </section>
 
-            <div class="project-card">
-                <div class="project-icon">💬</div>
-                <h3 class="project-title">JoinMessage</h3>
-                <div class="project-stats">
-                    <div class="project-stat">
-                        <span>📥</span> 95 downloads
-                    </div>
-                    <div class="project-stat">
-                        <span>⭐</span> 0 followers
+        <!-- Tech Stack Section -->
+        <section id="tech" class="tech">
+            <div class="container">
+                <h2>// tech stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">☕ Java</div>
+                    <div class="tech-item">🐍 Python</div>
+                    <div class="tech-item">🎮 Spigot API</div>
+                    <div class="tech-item">💬 Discord.py</div>
+                    <div class="tech-item">🗄️ SQL</div>
+                    <div class="tech-item">🔧 Git</div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://modrinth.com/user/therealmangoosey" class="social-link">
+                        <span>📦</span> Modrinth
+                    </a>
+                    <a href="https://dsc.gg/fruitsnacks" class="social-link">
+                        <span>💬</span> Discord
+                    </a>
+                    <a href="https://github.com/therealmangoosey" class="social-link">
+                        <span>💻</span> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Section -->
+        <section id="status" class="status">
+            <div class="container">
+                <h2>// current status</h2>
+                <div class="status-card">
+                    <div class="status-indicator"></div>
+                    <div>
+                        <h3>currently coding</h3>
+                        <p>working on fruitsnacks music bot + plugin optimizations</p>
                     </div>
                 </div>
-                <p class="project-description">Advanced plugin that sends customizable private messages when players join your server.</p>
-                <ul class="project-features">
-                    <li>Multi-line message support</li>
-                    <li>Color code customization</li>
-                    <li>Lightweight & efficient</li>
-                    <li>Easy configuration</li>
-                </ul>
             </div>
+        </section>
 
-            <div class="project-card">
-                <div class="project-icon">🎵</div>
-                <h3 class="project-title">FruitSnacks Music</h3>
-                <div class="project-stats">
-                    <div class="project-stat">
-                        <span>🎶</span> Active
-                    </div>
-                    <div class="project-stat">
-                        <span>🤖</span> Discord Bot
-                    </div>
-                </div>
-                <p class="project-description">A feature-rich Discord music bot with high-quality audio streaming and playlist management. Available now!</p>
-                <ul class="project-features">
-                    <li>High-quality audio playback</li>
-                    <li>Playlist support & queue management</li>
-                    <li>Multiple source support</li>
-                    <li>Advanced music controls</li>
-                </ul>
-                <a href="https://dsc.gg/fruitsnacks" class="animated-border-btn" target="_blank">Add to Server</a>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>// let's connect</h2>
+                <h3>ready to collaborate?</h3>
+                <p>join my discord for commissions, project updates, and to see what i'm building. always open to new ideas and opportunities.</p>
+                <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary btn-large">join discord server</a>
             </div>
-        </div>
-    </section>
-
-    <section id="tech">
-        <h2 class="section-title">// tech stack</h2>
-        <div class="tech-stack">
-            <div class="tech-item">☕ Java</div>
-            <div class="tech-item">🐍 Python</div>
-            <div class="tech-item">🎮 Spigot API</div>
-            <div class="tech-item">💬 Discord.py</div>
-            <div class="tech-item">🗄️ SQL</div>
-            <div class="tech-item">🔧 Git</div>
-        </div>
-
-        <div class="links-grid">
-            <a href="https://modrinth.com/user/therealmangoosey" class="link-card" target="_blank">
-                <div class="link-icon">📦</div>
-                <div class="link-title">Modrinth</div>
-            </a>
-            <a href="https://dsc.gg/fruitsnacks" class="link-card" target="_blank">
-                <div class="link-icon">💬</div>
-                <div class="link-title">Discord</div>
-            </a>
-            <a href="https://github.com/therealmangoosey" class="link-card" target="_blank">
-                <div class="link-icon">💻</div>
-                <div class="link-title">GitHub</div>
-            </a>
-        </div>
-    </section>
-
-    <section id="status">
-        <h2 class="section-title">// current status</h2>
-        
-        <div class="loader"></div>
-        
-        <div class="status-box glow-card">
-            <div>
-                <span class="status-indicator"></span>
-                <strong class="animated-border-btn">currently coding</strong>
-            </div>
-            <p class="status-text">working on fruitsnacks music bot + plugin optimizations</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2 class="section-title">// let's connect</h2>
-        <div class="contact-card">
-            <h3>ready to collaborate?</h3>
-            <p>join my discord for commissions, project updates, and to see what i'm building. always open to new ideas and opportunities.</p>
-            <a href="https://dsc.gg/fruitsnacks" class="btn btn-secondary" target="_blank">join discord server</a>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2024 ithinkimcharlie • built with code & monster</p>
+        <div class="container">
+            <p>© 2024 ithinkimcharlie • built with code & monster</p>
+        </div>
     </footer>
-
-    <script>
-        // Cursor trail effect with custom cursor
-        const cursorDot = document.getElementById('cursorDot');
-        const trails = [];
-        const trailLength = 15;
-
-        // Only show custom cursor on desktop
-        if (window.innerWidth > 768) {
-            for (let i = 0; i < trailLength; i++) {
-                const trail = document.createElement('div');
-                trail.className = 'cursor-trail';
-                document.body.appendChild(trail);
-                trails.push(trail);
-            }
-
-            let mouseX = 0, mouseY = 0;
-            let cursorX = 0, cursorY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            function animateCursor() {
-                cursorX += (mouseX - cursorX) * 0.2;
-                cursorY += (mouseY - cursorY) * 0.2;
-
-                cursorDot.style.left = (cursorX - 10) + 'px';
-                cursorDot.style.top = (cursorY - 10) + 'px';
-
-                let prevX = cursorX;
-                let prevY = cursorY;
-
-                trails.forEach((trail, index) => {
-                    const currentX = parseFloat(trail.style.left) || cursorX;
-                    const currentY = parseFloat(trail.style.top) || cursorY;
-                    
-                    const newX = currentX + (prevX - currentX) * 0.3;
-                    const newY = currentY + (prevY - currentY) * 0.3;
-                    
-                    trail.style.left = (newX - 5) + 'px';
-                    trail.style.top = (newY - 5) + 'px';
-                    trail.style.opacity = (trailLength - index) / trailLength * 0.6;
-                    
-                    prevX = currentX;
-                    prevY = currentY;
-                });
-
-                requestAnimationFrame(animateCursor);
-            }
-
-            animateCursor();
-        }
-
-        // Galaxy effect
-        const galaxy = document.getElementById('galaxy');
-        
-        // More stars spread across larger area
-        for (let i = 0; i < 500; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            const size = Math.random() * 3 + 0.5;
-            star.style.width = size + 'px';
-            star.style.height = size + 'px';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 300 + '%';
-            star.style.animationDelay = Math.random() * 5 + 's';
-            star.style.animationDuration = (Math.random() * 4 + 2) + 's';
-            galaxy.appendChild(star);
-        }
-
-        // Nebulas
-        const colors = ['#1e3a8a', '#7c3aed', '#06b6d4', '#3b82f6', '#8b5cf6', '#0ea5e9'];
-        for (let i = 0; i < 12; i++) {
-            const nebula = document.createElement('div');
-            nebula.className = 'nebula';
-            const size = Math.random() * 600 + 400;
-            nebula.style.width = size + 'px';
-            nebula.style.height = size + 'px';
-            nebula.style.left = Math.random() * 100 + '%';
-            nebula.style.top = Math.random() * 300 + '%';
-            nebula.style.background = colors[Math.floor(Math.random() * colors.length)];
-            nebula.style.animationDelay = Math.random() * 8 + 's';
-            nebula.style.animationDuration = (Math.random() * 8 + 12) + 's';
-            galaxy.appendChild(nebula);
-        }
-
-        const galaxyBg = document.getElementById('galaxyBg');
-        const backToTop = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY;
-            const windowHeight = window.innerHeight;
-
-            // Back to top button
-            if (scrollPos > windowHeight * 0.5) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-
-            // Hide scroll indicator
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            if (scrollIndicator) {
-                if (scrollPos > 100) {
-                    scrollIndicator.style.opacity = '0';
-                    scrollIndicator.style.pointerEvents = 'none';
-                } else {
-                    scrollIndicator.style.opacity = '1';
-                    scrollIndicator.style.pointerEvents = 'all';
-                }
-            }
-        });
-
-        // Back to top functionality
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Animated counter
-        const animateCounter = (element) => {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    element.textContent = Math.floor(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target;
-                }
-            };
-
-            updateCounter();
-        };
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    
-                    if (entry.target.classList.contains('stat-number')) {
-                        animateCounter(entry.target);
-                    }
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.about-content, .terminal, .status-box, .contact-card, .tech-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(50px)';
-            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(el);
-        });
-
-        document.querySelectorAll('.stat-number').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Mobile menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-
-        // Parallax effect (desktop only)
-        if (window.innerWidth > 768) {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallaxElements = document.querySelectorAll('.hero');
-                
-                parallaxElements.forEach(el => {
-                    const speed = 0.3;
-                    el.style.transform = `translateY(${scrolled * speed}px)`;
-                });
-            });
-        }
-    </script>
 </body>
 </html>
