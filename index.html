@@ -13,7 +13,7 @@
         <div class="galaxy" id="galaxy"></div>
     </div>
 
-    <div class="back-to-top" id="backToTop"></div>
+    <div class="back-to-top" id="backToTop">&#8679;</div>
 
     <nav>
         <div class="logo">&lt;ithinkimcharlie/&gt;</div>
@@ -96,8 +96,8 @@
                 </div>
                 <p class="project-description">The all-in-one server optimization plugin for Minecraft 1.21.x that enhances performance through intelligent resource management.</p>
                 <ul class="project-features">
-                    <li>Smart chunk loading & unloading</li>
-                    <li>Entity optimization & culling</li>
+                    <li>Smart chunk loading &amp; unloading</li>
+                    <li>Entity optimization &amp; culling</li>
                     <li>Memory leak detection</li>
                     <li>Redstone circuit optimization</li>
                 </ul>
@@ -119,7 +119,7 @@
                     <li>Simple protection commands</li>
                     <li>Minimal resource usage</li>
                     <li>Compatible with 1.21.4</li>
-                    <li>Paper & Spigot support</li>
+                    <li>Paper &amp; Spigot support</li>
                 </ul>
             </div>
 
@@ -138,7 +138,7 @@
                 <ul class="project-features">
                     <li>Multi-line message support</li>
                     <li>Color code customization</li>
-                    <li>Lightweight & efficient</li>
+                    <li>Lightweight &amp; efficient</li>
                     <li>Easy configuration</li>
                 </ul>
             </div>
@@ -157,7 +157,7 @@
                 <p class="project-description">A feature-rich Discord music bot with high-quality audio streaming and playlist management. Available now!</p>
                 <ul class="project-features">
                     <li>High-quality audio playback</li>
-                    <li>Playlist support & queue management</li>
+                    <li>Playlist support &amp; queue management</li>
                     <li>Multiple source support</li>
                     <li>Advanced music controls</li>
                 </ul>
@@ -217,7 +217,7 @@
     </section>
 
     <footer>
-        <p>© 2024 ithinkimcharlie • built with code & monster</p>
+        <p>© 2025 ithinkimcharlie • built with code &amp; monster</p>
     </footer>
 
     <script>
@@ -277,7 +277,6 @@
         // Galaxy effect
         const galaxy = document.getElementById('galaxy');
         
-        // More stars spread across larger area
         for (let i = 0; i < 500; i++) {
             const star = document.createElement('div');
             star.className = 'star';
@@ -407,12 +406,14 @@
         
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
                 navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
             }
         });
 
