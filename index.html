@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ithinkimcharlie - Developer & Creator</title>
+    <title>ithinkimcharlie — developer & creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div class="cursor-dot" id="cursorDot"></div>
 
     <div class="animated-bg" id="galaxyBg">
         <div class="galaxy" id="galaxy"></div>
     </div>
 
-    <div class="back-to-top" id="backToTop">&#8679;</div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8679;</button>
 
     <nav>
         <div class="logo">&lt;ithinkimcharlie/&gt;</div>
-        <div class="hamburger" id="hamburger">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">home</a></li>
             <li><a href="#about">about</a></li>
@@ -32,8 +36,378 @@
         </ul>
     </nav>
 
+    <!-- ── HERO ── -->
     <section id="home" class="hero">
-        <h1 class="glitch">ithinkimcharlie</h1>
+        <div class="hero-eyebrow">hello, world</div>
+        <h1 class="glitch" data-text="ithinkimcharlie">ithinkimcharlie</h1>
+        <p class="typing">developer&nbsp;•&nbsp;creator&nbsp;•&nbsp;builder</p>
+
+        <div class="stats-container">
+            <div class="stat-box glow-card">
+                <div class="stat-number" data-target="1052">0</div>
+                <div class="stat-label">total downloads</div>
+            </div>
+            <div class="stat-box glow-card">
+                <div class="stat-number" data-target="4">0</div>
+                <div class="stat-label">projects live</div>
+            </div>
+            <div class="stat-box glow-card">
+                <div class="stat-number" data-target="6">0</div>
+                <div class="stat-label">followers</div>
+            </div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary" target="_blank" rel="noopener">join discord</a>
+            <a href="https://modrinth.com/user/therealmangoosey" class="btn btn-secondary" target="_blank" rel="noopener">view modrinth</a>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true"></div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about">
+        <h2 class="section-title">// about me</h2>
+        <div class="about-content">
+            <p>hey! i'm charlie — a developer building discord bots and minecraft plugins. i code stuff that makes communities better and gameplay more interesting. always experimenting with new ideas and shipping cool projects.</p>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-btn red"></div>
+                <div class="terminal-btn yellow"></div>
+                <div class="terminal-btn green"></div>
+                <span class="terminal-title">charlie@dev — bash</span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line"><span class="prompt">charlie@dev:~$</span> <span class="cmd">whoami</span></div>
+                <div class="terminal-line output">developer | minecraft plugin creator</div>
+                <div class="terminal-line"><span class="prompt">charlie@dev:~$</span> <span class="cmd">ls skills/</span></div>
+                <div class="terminal-line output">java &nbsp; python &nbsp; discord.py &nbsp; spigot-api</div>
+                <div class="terminal-line"><span class="prompt">charlie@dev:~$</span> <span class="cmd">cat motivation.txt</span></div>
+                <div class="terminal-line output">building cool stuff that people actually use<span class="blink-cursor">_</span></div>
+                <div class="terminal-line comment">// TODO: learn rust, contribute to open source, sleep more</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects">
+        <h2 class="section-title">// my projects</h2>
+        <div class="projects-grid">
+
+            <div class="project-card reveal">
+                <div class="project-tag">plugin</div>
+                <div class="project-icon">⚡</div>
+                <h3 class="project-title">MCOptimiser</h3>
+                <div class="project-stats">
+                    <div class="project-stat"><span class="stat-icon">📥</span> 497 downloads</div>
+                    <div class="project-stat"><span class="stat-icon">⭐</span> 3 followers</div>
+                </div>
+                <p class="project-description">The all-in-one server optimisation plugin for Minecraft 1.21.x — enhances performance through intelligent resource management.</p>
+                <ul class="project-features">
+                    <li>Smart chunk loading &amp; unloading</li>
+                    <li>Entity optimisation &amp; culling</li>
+                    <li>Memory leak detection</li>
+                    <li>Redstone circuit optimisation</li>
+                </ul>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-tag">plugin</div>
+                <div class="project-icon">🔒</div>
+                <h3 class="project-title">ChestProtect</h3>
+                <div class="project-stats">
+                    <div class="project-stat"><span class="stat-icon">📥</span> 460 downloads</div>
+                    <div class="project-stat"><span class="stat-icon">⭐</span> 3 followers</div>
+                </div>
+                <p class="project-description">The only chest protection you need. Secure your containers with an intuitive, lightweight protection system.</p>
+                <ul class="project-features">
+                    <li>Simple protection commands</li>
+                    <li>Minimal resource usage</li>
+                    <li>Compatible with 1.21.4</li>
+                    <li>Paper &amp; Spigot support</li>
+                </ul>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-tag">plugin</div>
+                <div class="project-icon">💬</div>
+                <h3 class="project-title">JoinMessage</h3>
+                <div class="project-stats">
+                    <div class="project-stat"><span class="stat-icon">📥</span> 95 downloads</div>
+                    <div class="project-stat"><span class="stat-icon">⭐</span> 0 followers</div>
+                </div>
+                <p class="project-description">Advanced plugin that sends customisable private messages when players join your server.</p>
+                <ul class="project-features">
+                    <li>Multi-line message support</li>
+                    <li>Color code customisation</li>
+                    <li>Lightweight &amp; efficient</li>
+                    <li>Easy configuration</li>
+                </ul>
+            </div>
+
+            <div class="project-card project-card--featured reveal">
+                <div class="project-tag">discord bot</div>
+                <div class="project-icon">🎵</div>
+                <h3 class="project-title">FruitSnacks Music</h3>
+                <div class="project-stats">
+                    <div class="project-stat"><span class="stat-icon">🎶</span> Active</div>
+                    <div class="project-stat"><span class="stat-icon">🤖</span> Discord Bot</div>
+                </div>
+                <p class="project-description">A feature-rich Discord music bot with high-quality audio streaming and playlist management.</p>
+                <ul class="project-features">
+                    <li>High-quality audio playback</li>
+                    <li>Playlist support &amp; queue management</li>
+                    <li>Multiple source support</li>
+                    <li>Advanced music controls</li>
+                </ul>
+                <a href="https://dsc.gg/fruitsnacks" class="project-cta" target="_blank" rel="noopener">Add to Server →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── TECH ── -->
+    <section id="tech">
+        <h2 class="section-title">// tech stack</h2>
+        <div class="tech-stack">
+            <div class="tech-item reveal"><span class="tech-emoji">☕</span><span>Java</span></div>
+            <div class="tech-item reveal"><span class="tech-emoji">🐍</span><span>Python</span></div>
+            <div class="tech-item reveal"><span class="tech-emoji">🎮</span><span>Spigot API</span></div>
+            <div class="tech-item reveal"><span class="tech-emoji">💬</span><span>Discord.py</span></div>
+            <div class="tech-item reveal"><span class="tech-emoji">🗄️</span><span>SQL</span></div>
+            <div class="tech-item reveal"><span class="tech-emoji">🔧</span><span>Git</span></div>
+        </div>
+
+        <div class="links-grid">
+            <a href="https://modrinth.com/user/therealmangoosey" class="link-card reveal" target="_blank" rel="noopener">
+                <div class="link-icon">📦</div>
+                <div class="link-title">Modrinth</div>
+                <div class="link-sub">minecraft plugins</div>
+            </a>
+            <a href="https://dsc.gg/fruitsnacks" class="link-card reveal" target="_blank" rel="noopener">
+                <div class="link-icon">💬</div>
+                <div class="link-title">Discord</div>
+                <div class="link-sub">community server</div>
+            </a>
+            <a href="https://github.com/therealmangoosey" class="link-card reveal" target="_blank" rel="noopener">
+                <div class="link-icon">💻</div>
+                <div class="link-title">GitHub</div>
+                <div class="link-sub">open source</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ── STATUS ── -->
+    <section id="status">
+        <h2 class="section-title">// current status</h2>
+        <div class="status-box glow-card">
+            <div class="status-header">
+                <span class="status-dot"></span>
+                <strong class="status-label">currently coding</strong>
+            </div>
+            <p class="status-text">working on fruitsnacks music bot + plugin optimisations</p>
+            <div class="status-loader">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact">
+        <h2 class="section-title">// let's connect</h2>
+        <div class="contact-card">
+            <div class="contact-inner">
+                <h3>ready to collaborate?</h3>
+                <p>join my discord for commissions, project updates, and to see what i'm building. always open to new ideas and opportunities.</p>
+                <a href="https://dsc.gg/fruitsnacks" class="btn btn-primary" target="_blank" rel="noopener">join discord server</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-logo">&lt;ithinkimcharlie/&gt;</span>
+            <span class="footer-copy">© 2025 ithinkimcharlie • built with code &amp; monster</span>
+        </div>
+    </footer>
+
+    <script>
+    (() => {
+        'use strict';
+
+        // ── Custom cursor (desktop only) ──────────────────────────────────
+        const isDesktop = window.innerWidth > 768;
+        const cursorDot = document.getElementById('cursorDot');
+
+        if (isDesktop) {
+            const trailLength = 12;
+            const trails = [];
+
+            for (let i = 0; i < trailLength; i++) {
+                const t = document.createElement('div');
+                t.className = 'cursor-trail';
+                document.body.appendChild(t);
+                trails.push({ el: t, x: 0, y: 0 });
+            }
+
+            let mouseX = 0, mouseY = 0;
+            let dotX = 0, dotY = 0;
+
+            document.addEventListener('mousemove', e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animateCursor() {
+                dotX += (mouseX - dotX) * 0.18;
+                dotY += (mouseY - dotY) * 0.18;
+
+                cursorDot.style.transform = `translate(${dotX - 10}px, ${dotY - 10}px)`;
+
+                let prevX = dotX, prevY = dotY;
+                trails.forEach((t, i) => {
+                    t.x += (prevX - t.x) * 0.28;
+                    t.y += (prevY - t.y) * 0.28;
+                    t.el.style.transform = `translate(${t.x - 5}px, ${t.y - 5}px)`;
+                    t.el.style.opacity = ((trailLength - i) / trailLength * 0.5).toString();
+                    prevX = t.x;
+                    prevY = t.y;
+                });
+
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+        } else {
+            cursorDot.style.display = 'none';
+        }
+
+        // ── Galaxy background ─────────────────────────────────────────────
+        const galaxy = document.getElementById('galaxy');
+        const frag = document.createDocumentFragment();
+
+        for (let i = 0; i < 400; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            const sz = Math.random() * 2.5 + 0.5;
+            s.style.cssText = `
+                width:${sz}px; height:${sz}px;
+                left:${Math.random() * 100}%;
+                top:${Math.random() * 300}%;
+                animation-delay:${Math.random() * 5}s;
+                animation-duration:${Math.random() * 4 + 2}s;
+            `;
+            frag.appendChild(s);
+        }
+
+        const nebulaColors = ['#1e3a8a','#7c3aed','#06b6d4','#3b82f6','#8b5cf6'];
+        for (let i = 0; i < 10; i++) {
+            const n = document.createElement('div');
+            n.className = 'nebula';
+            const sz = Math.random() * 500 + 350;
+            n.style.cssText = `
+                width:${sz}px; height:${sz}px;
+                left:${Math.random() * 100}%;
+                top:${Math.random() * 300}%;
+                background:${nebulaColors[Math.floor(Math.random() * nebulaColors.length)]};
+                animation-delay:${Math.random() * 8}s;
+                animation-duration:${Math.random() * 8 + 12}s;
+            `;
+            frag.appendChild(n);
+        }
+        galaxy.appendChild(frag);
+
+        // ── Scroll-driven UI ──────────────────────────────────────────────
+        const backToTop = document.getElementById('backToTop');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            backToTop.classList.toggle('visible', y > window.innerHeight * 0.5);
+            if (scrollIndicator) {
+                scrollIndicator.style.opacity = y > 80 ? '0' : '1';
+            }
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // ── Animated counter (fires only when element enters view) ────────
+        const counters = new Set();
+
+        function animateCounter(el) {
+            if (counters.has(el)) return;
+            counters.add(el);
+            const target = parseInt(el.dataset.target, 10);
+            const duration = 1800;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const tick = () => {
+                current = Math.min(current + step, target);
+                el.textContent = Math.floor(current).toLocaleString();
+                if (current < target) requestAnimationFrame(tick);
+            };
+            tick();
+        }
+
+        // ── Intersection Observer: reveal + counters ──────────────────────
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('in-view');
+                revealObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        const counterObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) animateCounter(entry.target);
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.reveal, .about-content, .terminal, .status-box, .contact-card').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        document.querySelectorAll('.stat-number').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // ── Smooth scroll ─────────────────────────────────────────────────
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                navLinks.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // ── Mobile nav ────────────────────────────────────────────────────
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', e => {
+            e.stopPropagation();
+            const open = navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', String(open));
+        });
+
+        document.addEventListener('click', e => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+    })();
+    </script>
+</body>
+</html>
         <p class="typing">developer • creator • 16</p>
         
         <div class="stats-container">
